@@ -1,22 +1,39 @@
 /* pages/home/home.wxss */
 swiper {
-  height: 330rpx;
+    height: 330rpx;
 
-  .swiper-item,
-  image {
-    width: 100%;
-    height: 100%;
-  }
+    .swiper-item,
+    image {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .nav-list {
-  display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
 
-  .nav-img {
-    width: 128rpx;
-    height: 140rpx;
-  }
+    .nav-img {
+        width: 128rpx;
+        height: 140rpx;
+    }
 
+}
+
+.floor-title {
+    height: 60rpx;
+    width: 100%;
+    display: flex;
+}
+
+.floor-img-box {
+    display: flex;
+    padding-left: 10rpx;
+}
+
+.right-img-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

@@ -1,22 +1,46 @@
 <!--pages/home/home.wxml-->
 <view>
-  <!-- 轮播图区域 -->
-  <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
-    <block wx:for="{{swiperList}}" wx:key="*this">
-      <swiper-item>
-        <navigator class="swiper-item" url="{{'/subpkg/goods_detail/goods_detail?goods_id='+item.goods_id}}">
-          <image src="{{item.image_src}}" />
-        </navigator>
-      </swiper-item>
-    </block>
-  </swiper>
+    <!-- 轮播图区域 -->
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
+        <block wx:for="{{swiperList}}" wx:key="*this">
+            <swiper-item>
+                <navigator class="swiper-item" url="{{'/subpkg/goods_detail/goods_detail?goods_id='+item.goods_id}}">
+                    <image src="{{item.image_src}}" />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
 
-  <!-- 分类导航区域 -->
-  <view class="nav-list">
-    <block wx:for="{{navList}}" wx:key="*this">
-      <view class="nav-item">
-        <image src="{{item.image_src}}" class="nav-img" />
-      </view>
-    </block>
-  </view>
+    <!-- 分类导航区域 -->
+    <view class="nav-list">
+        <block wx:for="{{navList}}" wx:key="*this">
+            <view class="nav-item" data-item="{{item}}" bind:tap="onClickNav">
+                <image src="{{item.image_src}}" class="nav-img" />
+            </view>
+        </block>
+    </view>
+
+    <!-- 楼层区域 -->
+    <view class="floor-list">
+        <block wx:for="{{floorList}}" wx:key="*this">
+            <view class="floor-item">
+                <image src="{{item.floor_title.image_src}}" class="floor-title" />
+                <!-- 楼层图片区域 -->
+                <view class="floor-img-box">
+                    <!-- 左侧大图片的盒子 -->
+                    <navigator class="left-img-box" url="{{item.product_list[0].url}}">
+                        <image src="{{item.product_list[0].image_src}}" style="width:{{item.product_list[0].image_width}}rpx" />
+                    </navigator>
+                    <!-- 右侧4个小图片的盒子 -->
+                    <view class="right-img-box">
+                        <block wx:for="{{item.product_list}}" wx:key="*this">
+                            <navigator class="right-img-item" wx:if="{{index!==0}}" url="{{item.url}}">
+                                <image src="{{item.image_src}}" mode="widthFix" style="width:{{item.image_width}}rpx" />
+                            </navigator>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
 </view>
