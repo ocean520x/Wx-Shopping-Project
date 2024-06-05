@@ -1,0 +1,7 @@
+<!--pages/cate/components/my-search.wxml-->
+<view class="my-search-container" style="background-color: {{bgColor}};">
+    <view class="my-search-box" style="border-radius: {{radius}}px;" bind:tap="searchBoxHandler">
+        <icon type="search" size="17" />
+        <text class="placeholder">搜索</text>
+    </view>
+</view>

@@ -1,4 +1,11 @@
 /* pages/cate/cate.wxss */
+
+.search-box {
+position: sticky;
+top: 0;
+z-index: 999;
+}
+
 .scroll-view-container {
     display: flex;
 

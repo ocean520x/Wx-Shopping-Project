@@ -18,7 +18,7 @@ Page({
     onLoad(options) {
         const sysInfo = wx.getSystemInfoSync()
         this.setData({
-            wh: sysInfo.windowHeight
+            wh: sysInfo.windowHeight-50
         })
         //获取分类列表
         this.getCateList()
@@ -50,6 +50,12 @@ Page({
         const item=event.currentTarget.dataset.item
         wx.navigateTo({
           url: '/subpkg/goods_list/goods_list?cid='+item.cat_id,
+        })
+    },
+    
+    gotoSearch() {
+        wx.navigateTo({
+          url: '/subpkg/search/search',
         })
     }
 })

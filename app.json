@@ -3,17 +3,24 @@
     "pages/cate/cate",
     "pages/home/home",
     "pages/cart/cart",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/cate/components/my-search"
   ],
   "subPackages": [
     {
       "root": "subpkg",
       "pages": [
         "goods_detail/goods_detail",
-        "goods_list/goods_list"
+        "goods_list/goods_list",
+        "search/search",
+        "goods_list/components/my-goods"
       ]
     }
   ],
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
@@ -48,7 +55,6 @@
       }
     ]
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

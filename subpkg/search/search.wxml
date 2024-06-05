@@ -1,0 +1,35 @@
+<!--subpkg/search/search.wxml-->
+<view class="search-box">
+    <view class="icon-box">
+        <icon type="search" size="17" />
+    </view>
+    <input class="search-input" bind:input="inputHandler" focus="{{focus}}" value="{{keywords}}"  />
+    <view class="icon-clear-box">
+        <icon type="clear" size="17" bind:tap="cleanIpt" />
+    </view>
+</view>
+
+<!-- 搜索建议列表 -->
+<view class="suggest-list" wx:if="{{searchResults.length!==0}}">
+<block wx:for="{{searchResults}}" wx:key="*this">
+    <view class="suggest-item" data-id="{{item.goods_id}}" bind:tap="goToDetail">
+    <view class="goods-name">{{item.goods_name}}</view>
+    <van-icon name="arrow"  size="16" />
+    </view>
+</block>
+</view>
+
+<!-- 搜索历史 -->
+<view class="history-box" wx:else>
+<!-- 标题 -->
+<view class="history-title">
+<text>搜索历史</text>
+<van-icon name="delete-o" size="17" bind:tap="cleanHistory" />
+</view>
+<!-- 列表 -->
+<view class="history-list" >
+<block wx:for="{{historyList}}" wx:key="*this">
+    <van-tag type="primary" data-keywords="{{item}}" bind:tap="goToGoodsList">{{item}}</van-tag>
+</block>
+</view>
+</view>

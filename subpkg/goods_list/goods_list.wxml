@@ -1,2 +1,8 @@
 <!--subpkg/goods_list/goods_list.wxml-->
-<text>subpkg/goods_list/goods_list.wxml</text>
+<view>
+    <view class="goods-list">
+        <view wx:for="{{goodsList}}" wx:key="*this" data-item="{{item}}" bind:tap="goToDetail">
+            <my-goods goods="{{item}}" />
+        </view>
+    </view>
+</view>
